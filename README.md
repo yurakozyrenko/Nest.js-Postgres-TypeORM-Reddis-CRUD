@@ -23,7 +23,7 @@ DB_NAME=ваша-база-данных
 
 migration:generate  выполняет  команда npm run makemigrations  
 
-migration:run       выполняет  команда npm run migrete
+migration:run       выполняет  команда npm run migrate
 
 migration:revert    выполняет  команда npm run revert
 
