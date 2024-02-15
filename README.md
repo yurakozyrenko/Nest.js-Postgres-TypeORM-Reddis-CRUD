@@ -4,13 +4,13 @@
 
 ## Установка
 
-1. Клонируйте репозиторий:
+## Клонируйте репозиторий:
 git clone https://github.com/yurakozyrenko/Nest.js-Postgres-TypeORM-Reddis-CRUD.git)https://github.com/yurakozyrenko/Nest.js-Postgres-TypeORM-Reddis-CRUD.git
 
-2.Установите зависимости:
+## Установите зависимости:
 npm install
 
-3. Настройка базы данных
+## Настройка базы данных
 .env в корне проекта и укажите настройки вашей базы данных:
 
 DB_HOST=ваш-хост
