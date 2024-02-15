@@ -21,8 +21,15 @@ DB_NAME=ваша-база-данных
 
 ##Запустите миграции:
 
-##migration:generate  выполняет  команда npm run makemigrations  
+migration:generate  выполняет  команда npm run makemigrations  
 
-##migration:run       выполняет  команда npm run migrete
+migration:run       выполняет  команда npm run migrete
 
-##migration:revert    выполняет  команда npm run revert
+migration:revert    выполняет  команда npm run revert
+
+##Запуск приложения
+
+npm run start:dev
+
+##Приложение будет доступно по адресу http://localhost:3000.
+
