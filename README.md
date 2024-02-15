@@ -21,6 +21,6 @@ DB_NAME=ваша-база-данных
 
 ##Запустите миграции:
 
-#migration:generate    команда npm run makemigrations  
-#migration:run         команда npm run migrete
-#migration:revert      команда npm run revert
+##migration:generate    команда npm run makemigrations  
+##migration:run         команда npm run migrete
+##migration:revert      команда npm run revert
