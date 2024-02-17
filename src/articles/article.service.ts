@@ -12,7 +12,7 @@ import {
   CONFIG,
   RESPONSE_MESSAGES,
   USER_INPUT_MESSAGES,
-} from 'src/constants/constants';
+} from '../constants/constants';
 
 @Injectable()
 export class ArticleService {
@@ -55,7 +55,7 @@ export class ArticleService {
 
     const cachedValue = await this.cacheManager.get(CONFIG.CACHE_DATA);
     if (cachedValue) {
-      console.log('RESPONSE from Cache');
+      // console.log('RESPONSE from Cache');
       return cachedValue;
     }
 
@@ -67,22 +67,23 @@ export class ArticleService {
       .getManyAndCount();
 
     await this.cacheManager.set(CONFIG.CACHE_DATA, result, CONFIG.CACHE_TTL);
-    console.log('RESPONSE from Base');
+    // console.log('RESPONSE from Base');
     return result;
   }
 
   async getArticleById(id: number) {
-    const article = await this.articleRepository.findOne({ where: { id } });
+    const article = await this.articleRepository.findOne({
+      where: { id },
+      relations: ['author'],
+    });
 
     if (!article) {
       throw new NotFoundException(
-        USER_INPUT_MESSAGES.ERROR_FIND_ARTICLE,
-        `${id} `,
+        `${USER_INPUT_MESSAGES.ERROR_FIND_ARTICLE} ${id} `,
       );
     }
     return article;
   }
-  0;
 
   async createArticle(createArticleDto: CreateArticleDto, userId: number) {
     const validationResult =
@@ -106,8 +107,7 @@ export class ArticleService {
 
     if (!existingArticle) {
       throw new NotFoundException(
-        USER_INPUT_MESSAGES.ERROR_FIND_ARTICLE,
-        `${id} `,
+        `${USER_INPUT_MESSAGES.ERROR_FIND_ARTICLE} ${id} `,
       );
     }
 
@@ -123,7 +123,10 @@ export class ArticleService {
     const cacheKey = CONFIG.CACHE_DATA;
     await this.cacheManager.del(cacheKey);
 
-    return this.articleRepository.findOne({ where: { id } });
+    return this.articleRepository.findOne({
+      where: { id },
+      relations: ['author'],
+    });
   }
 
   async deleteArticle(id: number) {
@@ -131,8 +134,7 @@ export class ArticleService {
 
     if (result.affected === 0) {
       throw new NotFoundException(
-        USER_INPUT_MESSAGES.ERROR_FIND_ARTICLE,
-        `${id} `,
+        `${USER_INPUT_MESSAGES.ERROR_FIND_ARTICLE} ${id} `,
       );
     }
 

@@ -1,5 +1,5 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { PAGINATION } from 'src/constants/constants';
+import { PAGINATION } from '../constants/constants';
 
 export interface PaginationOptions {
   skip?: number;

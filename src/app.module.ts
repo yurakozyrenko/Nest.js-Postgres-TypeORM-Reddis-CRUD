@@ -7,6 +7,7 @@ import { User } from './users/user.entity';
 import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
 import { config } from 'dotenv';
+import { CONFIG } from './constants/constants';
 config();
 
 @Module({
@@ -23,7 +24,7 @@ config();
       autoLoadEntities: true,
     }),
     CacheModule.register({
-      ttl: 20000,
+      ttl: CONFIG.CACHE_TTL,
       store: redisStore,
       host: 'localhost', // Укажите свой хост Redis
       port: 6379, // Укажите свой порт Redis

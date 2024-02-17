@@ -12,7 +12,7 @@ import { CONFIG } from 'src/constants/constants';
     forwardRef(() => UsersModule),
     JwtModule.register({
       secret: process.env.PRIVATE_KEY || CONFIG.SECRET,
-      signOptions: { expiresIn: CONFIG.SECRET },
+      signOptions: { expiresIn: CONFIG.LIMIT },
     }),
   ],
   exports: [AuthService, JwtModule],

@@ -29,6 +29,8 @@ export const USER_INPUT_MESSAGES = {
   ERROR_FIND_ARTICLE: 'Article not found with id',
   ERROR_EMPTY_TITLE: 'Do not empty title',
   ERROR_EMPTY_DESCRIPTION: 'Do not empty description',
+  ERROR_TOKEN: 'token not empty',
+  ERROR_TOKEN_TYPE: 'Please, enter your token',
 };
 
 export const PAGINATION = {

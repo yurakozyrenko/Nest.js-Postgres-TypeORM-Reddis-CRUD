@@ -1,12 +1,13 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Article } from '../articles/article.entity';
 
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({})
+  @Column()
   email: string;
 
   @Column()
